@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SOFRACO — Protection sociale des indépendants & dirigeants</title>
+  <meta name="description" content="Groupe SOFRACO, Société Française de Courtage depuis 1987. Retraite, prévoyance, santé et épargne pour les indépendants, professions libérales et dirigeants." />
+  <meta name="theme-color" content="#050506" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./assets/vendor/three.module.min.js" } }
+  </script>
+</head>
+<body class="is-loading">
+
+  <!-- PRELOADER -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top">
+      <span class="mono">SOFRACO®</span>
+      <span class="mono">Société Française de Courtage</span>
+    </div>
+    <div class="loader__count"><span class="loader__num">0</span><span class="loader__pct">%</span></div>
+    <div class="loader__bar"><span></span></div>
+    <div class="loader__bottom mono"><span>Bordeaux — Depuis 1987</span><span>Initialisation du prisme</span></div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
+
+  <!-- WEBGL -->
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-cursor="Accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 22 20H2Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 9 16.5 17h-9Z" fill="currentColor"/></svg>
+      <span>SOFRACO</span>
+    </a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#manifeste" data-scramble>Manifeste</a>
+      <a href="#expertises" data-scramble>Expertises</a>
+      <a href="#pour-qui" data-scramble>Pour qui</a>
+      <a href="#methode" data-scramble>Méthode</a>
+    </nav>
+    <a href="#contact" class="nav__cta magnetic" data-cursor="Écrire"><span>Prendre rendez-vous</span><i>→</i></a>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" aria-hidden="true">
+    <a href="#manifeste">Manifeste</a>
+    <a href="#expertises">Expertises</a>
+    <a href="#pour-qui">Pour qui</a>
+    <a href="#methode">Méthode</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__meta mono">
+        <span class="hero__tag"><i class="pulse"></i>Courtier en protection sociale</span>
+        <span>N 44°50′ — W 0°34′</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="line"><span class="word">Votre</span> <span class="word serif">avenir,</span></span>
+        <span class="line"><span class="word">réfracté</span> <span class="word">en</span></span>
+        <span class="line"><span class="word serif grad">certitudes.</span></span>
+      </h1>
+
+      <div class="hero__bottom">
+        <p class="hero__lead">Depuis 1987, SOFRACO décompose la complexité de la protection sociale pour en faire jaillir des solutions limpides&nbsp;: retraite, prévoyance, santé, épargne.</p>
+        <div class="hero__actions">
+          <a href="#expertises" class="btn btn--light magnetic" data-cursor="Explorer"><span>Découvrir nos expertises</span></a>
+          <a href="#contact" class="btn btn--ghost magnetic" data-cursor="Contact"><span>Être rappelé</span></a>
+        </div>
+      </div>
+
+
+      <div class="hero__scroll mono"><span>Scroll</span><i></i></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" aria-label="Domaines">
+      <div class="marquee__track">
+        <span>Retraite</span><b>✦</b><span class="serif">Prévoyance</span><b>✦</b><span>Santé</span><b>✦</b><span class="serif">Épargne</span><b>✦</b><span>Madelin</span><b>✦</b><span class="serif">PER</span><b>✦</b>
+        <span>Retraite</span><b>✦</b><span class="serif">Prévoyance</span><b>✦</b><span>Santé</span><b>✦</b><span class="serif">Épargne</span><b>✦</b><span>Madelin</span><b>✦</b><span class="serif">PER</span><b>✦</b>
+      </div>
+    </section>
+
+    <!-- MANIFESTE -->
+    <section class="manifesto" id="manifeste">
+      <div class="label mono"><span>01</span> Manifeste</div>
+      <p class="manifesto__text" data-split>
+        Un indépendant ne devrait jamais choisir entre bâtir et se protéger. Nous transformons des régimes opaques en une architecture claire, taillée pour votre statut, vos revenus et ceux que vous aimez. <em>Une lumière brute entre. Un spectre précis en sort.</em>
+      </p>
+      <div class="manifesto__stats">
+        <div class="stat"><span class="stat__num" data-count="1987">0</span><span class="mono">Année de fondation</span></div>
+        <div class="stat"><span class="stat__num" data-count="4">0</span><span class="mono">Piliers de protection</span></div>
+        <div class="stat"><span class="stat__num" data-count="360" data-suffix="°">0</span><span class="mono">Vision patrimoniale</span></div>
+        <div class="stat"><span class="stat__num" data-count="1" data-prefix="×">0</span><span class="mono">Interlocuteur dédié</span></div>
+      </div>
+    </section>
+
+    <!-- EXPERTISES (horizontal) -->
+    <section class="expertise" id="expertises">
+      <div class="expertise__pin">
+        <div class="expertise__head">
+          <div class="label mono"><span>02</span> Expertises</div>
+          <h2>Quatre faisceaux.<br /><span class="serif">Une seule lumière.</span></h2>
+          <div class="expertise__progress"><span></span></div>
+        </div>
+        <div class="expertise__track">
+          <article class="card" data-tilt data-cursor="Détails">
+            <div class="card__glow"></div>
+            <div class="card__top mono"><span>/01</span><span>Retraite</span></div>
+            <div class="card__visual card__visual--rings"><i></i><i></i><i></i><i></i></div>
+            <h3>Retraite</h3>
+            <p>PER individuel, contrats Madelin, optimisation fiscale. Nous construisons le revenu de demain, avec la déductibilité d'aujourd'hui.</p>
+            <ul class="mono"><li>PER</li><li>Madelin</li><li>Fiscalité</li></ul>
+          </article>
+          <article class="card" data-tilt data-cursor="Détails">
+            <div class="card__glow"></div>
+            <div class="card__top mono"><span>/02</span><span>Prévoyance</span></div>
+            <div class="card__visual card__visual--shield"><svg viewBox="0 0 100 100"><path d="M50 8 86 22v26c0 22-16 38-36 44C30 86 14 70 14 48V22Z"/><path d="M50 22 74 31v17c0 15-10 26-24 30-14-4-24-15-24-30V31Z"/><path d="M50 36 62 40v8c0 8-5 13-12 15-7-2-12-7-12-15v-8Z"/></svg></div>
+            <h3>Prévoyance</h3>
+            <p>Arrêt de travail, invalidité, décès. Un filet calibré au millimètre pour que l'imprévu ne devienne jamais une faillite.</p>
+            <ul class="mono"><li>IJ</li><li>Invalidité</li><li>Décès</li></ul>
+          </article>
+          <article class="card" data-tilt data-cursor="Détails">
+            <div class="card__glow"></div>
+            <div class="card__top mono"><span>/03</span><span>Santé</span></div>
+            <div class="card__visual card__visual--pulse"><svg viewBox="0 0 200 60"><path d="M0 30h50l10-20 14 40 12-30 8 10h106"/></svg></div>
+            <h3>Santé</h3>
+            <p>Complémentaires santé individuelles et collectives, pour vous, votre famille et vos salariés. Des garanties lisibles, sans angle mort.</p>
+            <ul class="mono"><li>Individuelle</li><li>Collective</li><li>Famille</li></ul>
+          </article>
+          <article class="card" data-tilt data-cursor="Détails">
+            <div class="card__glow"></div>
+            <div class="card__top mono"><span>/04</span><span>Épargne</span></div>
+            <div class="card__visual card__visual--bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <h3>Épargne</h3>
+            <p>Assurance-vie, capitalisation, transmission. Faire fructifier, puis transmettre, avec la rigueur d'un architecte patrimonial.</p>
+            <ul class="mono"><li>Assurance-vie</li><li>Capitalisation</li><li>Transmission</li></ul>
+          </article>
+          <div class="card card--end">
+            <span class="serif">Et tout ce qui</span>
+            <span>relie les quatre.</span>
+            <a href="#contact" class="btn btn--light magnetic" data-cursor="Go"><span>Bilan gratuit</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POUR QUI -->
+    <section class="audience" id="pour-qui">
+      <div class="label mono"><span>03</span> Pour qui</div>
+      <ul class="audience__list">
+        <li data-cursor="Voir" data-img="a"><span class="mono">A</span><h3>Travailleurs non-salariés</h3><p>Artisans, commerçants, gérants majoritaires.</p><i>↗</i></li>
+        <li data-cursor="Voir" data-img="b"><span class="mono">B</span><h3>Professions libérales</h3><p>Médecins, avocats, experts, architectes.</p><i>↗</i></li>
+        <li data-cursor="Voir" data-img="c"><span class="mono">C</span><h3>Chefs d'entreprise</h3><p>Dirigeants, cadres, protection de l'équipe.</p><i>↗</i></li>
+        <li data-cursor="Voir" data-img="d"><span class="mono">D</span><h3>Particuliers</h3><p>Familles, projets de vie, transmission.</p><i>↗</i></li>
+      </ul>
+      <div class="audience__float" aria-hidden="true"><div class="audience__orb"></div></div>
+    </section>
+
+    <!-- METHODE -->
+    <section class="method" id="methode">
+      <div class="method__sticky">
+        <div class="label mono"><span>04</span> Méthode</div>
+        <h2>De la lumière blanche<br /><span class="serif grad">au spectre exact.</span></h2>
+      </div>
+      <ol class="method__steps">
+        <li class="step"><span class="step__n">01</span><div><h3>Diagnostic</h3><p>Analyse de votre statut, de vos régimes obligatoires et de vos garanties existantes. On voit enfin clair.</p></div></li>
+        <li class="step"><span class="step__n">02</span><div><h3>Architecture</h3><p>Nous comparons le marché et dessinons une stratégie sur-mesure : couverture, fiscalité, budget.</p></div></li>
+        <li class="step"><span class="step__n">03</span><div><h3>Mise en place</h3><p>Nous gérons les démarches de A à Z. Vous signez, nous orchestrons.</p></div></li>
+        <li class="step"><span class="step__n">04</span><div><h3>Suivi</h3><p>Un interlocuteur dédié qui ajuste votre protection à chaque étape de votre vie professionnelle.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="cta__ring" aria-hidden="true"></div>
+      <div class="label mono"><span>05</span> Contact</div>
+      <h2 class="cta__title"><span>Parlons de</span><span class="serif grad">votre futur.</span></h2>
+      <form class="cta__form" onsubmit="event.preventDefault(); this.classList.add('is-sent');">
+        <div class="field"><input id="f-name" required placeholder=" " /><label for="f-name">Nom & prénom</label></div>
+        <div class="field"><input id="f-mail" type="email" required placeholder=" " /><label for="f-mail">Email</label></div>
+        <div class="field"><select id="f-need" required><option value="" disabled selected></option><option>Retraite</option><option>Prévoyance</option><option>Santé</option><option>Épargne</option><option>Bilan global</option></select><label for="f-need">Votre besoin</label></div>
+        <button class="btn btn--light btn--xl magnetic" data-cursor="Envoyer"><span>Demander mon bilan</span></button>
+        <p class="cta__ok mono">Merci — un conseiller vous recontacte sous 24h.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div><span class="mono dim">Siège</span><p>Bordeaux, France</p></div>
+      <div><span class="mono dim">Groupe</span><p>SOFRACO — Société Française de Courtage</p></div>
+      <div><span class="mono dim">Navigation</span><p><a href="#expertises">Expertises</a> · <a href="#methode">Méthode</a> · <a href="#contact">Contact</a></p></div>
+      <div><span class="mono dim">Heure locale</span><p class="clock mono">--:--:--</p></div>
+    </div>
+    <div class="footer__giant" aria-hidden="true"><span>S</span><span>O</span><span>F</span><span>R</span><span>A</span><span>C</span><span>O</span></div>
+    <div class="footer__legal mono dim"><span>© <span class="year"></span> Groupe SOFRACO</span><span>Mentions légales</span><span>Intermédiaire en assurance</span></div>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script type="module" src="assets/js/scene.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
