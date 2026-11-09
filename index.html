@@ -3,216 +3,394 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SOFRACO — Protection sociale des indépendants & dirigeants</title>
-  <meta name="description" content="Groupe SOFRACO, Société Française de Courtage depuis 1987. Retraite, prévoyance, santé et épargne pour les indépendants, professions libérales et dirigeants." />
-  <meta name="theme-color" content="#050506" />
+  <title>Protection sociale des chefs d'entreprise | Groupe Sofraco</title>
+  <meta name="description" content="Le Groupe Sofraco, réseau national de courtiers indépendants experts en protection sociale depuis 1987 : retraite, santé, prévoyance, épargne et ingénierie sociale pour les dirigeants et leurs salariés." />
+  <meta name="theme-color" content="#ee7203" />
+  <link rel="icon" href="assets/img/favicon.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script type="importmap">
-    { "imports": { "three": "./assets/vendor/three.module.min.js" } }
-  </script>
 </head>
 <body class="is-loading">
 
-  <!-- PRELOADER -->
+  <!-- Loader : the six chevrons of the Sofraco mark assemble -->
   <div class="loader" aria-hidden="true">
-    <div class="loader__top">
-      <span class="mono">SOFRACO®</span>
-      <span class="mono">Société Française de Courtage</span>
-    </div>
-    <div class="loader__count"><span class="loader__num">0</span><span class="loader__pct">%</span></div>
-    <div class="loader__bar"><span></span></div>
-    <div class="loader__bottom mono"><span>Bordeaux — Depuis 1987</span><span>Initialisation du prisme</span></div>
+    <svg class="loader__mark" viewBox="0 0 44 94">
+      <path d="M43.787,0,0,18.766l14.593,6.255,29.193-12.51Z" fill="#f59c00"/>
+      <path d="M0,46.255,43.786,65.021V52.51L14.593,40Z" transform="translate(0 -14.979)" fill="#ee7203"/>
+      <path d="M0,42.51l14.593-6.255L0,30Z" transform="translate(0 -11.235)" fill="#e74011"/>
+      <path d="M0,82.5,29.193,95.011l14.593-6.256L0,69.99Z" transform="translate(0 -26.21)" fill="#ee7203"/>
+      <path d="M0,122.5v12.51l43.786-18.766L29.193,109.99Z" transform="translate(0 -41.189)" fill="#f59c00"/>
+      <path d="M61.263,99.99V112.5L46.67,106.245Z" transform="translate(-17.477 -37.444)" fill="#e74011"/>
+    </svg>
   </div>
 
-  <!-- CURSOR -->
-  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-  <!-- WEBGL -->
-  <canvas id="gl" aria-hidden="true"></canvas>
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- NAV -->
-  <header class="nav">
-    <a href="#top" class="nav__logo" data-cursor="Accueil">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 22 20H2Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 9 16.5 17h-9Z" fill="currentColor"/></svg>
-      <span>SOFRACO</span>
-    </a>
-    <nav class="nav__links" aria-label="Navigation principale">
-      <a href="#manifeste" data-scramble>Manifeste</a>
-      <a href="#expertises" data-scramble>Expertises</a>
-      <a href="#pour-qui" data-scramble>Pour qui</a>
-      <a href="#methode" data-scramble>Méthode</a>
-    </nav>
-    <a href="#contact" class="nav__cta magnetic" data-cursor="Écrire"><span>Prendre rendez-vous</span><i>→</i></a>
-    <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header__in">
+      <a href="https://sofraco.com" class="header__logo" aria-label="Groupe Sofraco — accueil">
+        <img src="assets/img/logo-sofraco.svg" alt="Groupe Sofraco — L'expert de la protection sociale" width="190" height="56" />
+      </a>
+      <div class="header__right">
+        <nav class="header__quick" aria-label="Liens rapides">
+          <a href="https://extranet.groupesofraco.fr/login" target="_blank" rel="noopener">Accès Membre</a>
+          <a href="https://sofraco.com/actualites/">Actualités</a>
+          <a href="tel:0557355735">05 57 35 57 35</a>
+        </nav>
+        <a href="https://sofraco.com/rejoignez-notre-reseau-de-courtiers/" class="btn btn--orange header__cta magnetic"><span>Rejoignez-nous</span></a>
+        <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="navrow"><div class="wrap">
+        <nav class="header__nav" aria-label="Navigation principale">
+          <a href="https://sofraco.com/a-propos-du-groupe/">À propos du Groupe</a>
+          <div class="has-sub">
+            <a href="https://sofraco.com/devenir-courtier/">Devenir courtier <i>▾</i></a>
+            <div class="sub">
+              <a href="https://sofraco.com/devenir-courtier/devenir-independant/">Pourquoi nous rejoindre ?</a>
+              <a href="https://sofraco.com/devenir-courtier/notre-accompagnement/">Notre accompagnement</a>
+              <a href="https://sofraco.com/devenir-courtier/formations/">Nos formations</a>
+              <a href="https://sofraco.com/devenir-courtier/temoignages/">Témoignages</a>
+            </div>
+          </div>
+          <a href="https://sofraco.com/courtiers-sofraco/">Trouver un courtier</a>
+          <a href="https://sofraco.com/expert-comptable/">Expert-comptable</a>
+          <a href="https://sofraco.com/les-solutions-du-dirigeant/">Solutions du dirigeant</a>
+          <a href="https://sofraco.com/les-solutions-collectives/">Solutions collectives</a>
+          <a href="https://sofraco.com/nos-action/">Nos actions</a>
+        </nav>
+    </div></div>
   </header>
 
-  <div class="menu" aria-hidden="true">
-    <a href="#manifeste">Manifeste</a>
-    <a href="#expertises">Expertises</a>
-    <a href="#pour-qui">Pour qui</a>
-    <a href="#methode">Méthode</a>
-    <a href="#contact">Contact</a>
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="https://sofraco.com/a-propos-du-groupe/">À propos du Groupe</a>
+    <a href="https://sofraco.com/devenir-courtier/">Devenir courtier</a>
+    <a href="https://sofraco.com/courtiers-sofraco/">Trouver un courtier</a>
+    <a href="https://sofraco.com/expert-comptable/">Expert-comptable</a>
+    <a href="https://sofraco.com/les-solutions-du-dirigeant/">Solutions du dirigeant</a>
+    <a href="https://sofraco.com/les-solutions-collectives/">Solutions collectives</a>
+    <a href="https://sofraco.com/nos-action/">Nos actions</a>
+    <div class="mobile-menu__foot">
+      <a href="https://extranet.groupesofraco.fr/login">Accès Membre</a>
+      <a href="https://sofraco.com/actualites/">Actualités</a>
+      <a href="https://sofraco.com/rejoignez-notre-reseau-de-courtiers/" class="btn btn--orange"><span>Rejoignez-nous</span></a>
+    </div>
   </div>
 
-  <main id="top">
-
+  <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__meta mono">
-        <span class="hero__tag"><i class="pulse"></i>Courtier en protection sociale</span>
-        <span>N 44°50′ — W 0°34′</span>
-      </div>
-
-      <h1 class="hero__title">
-        <span class="line"><span class="word">Votre</span> <span class="word serif">avenir,</span></span>
-        <span class="line"><span class="word">réfracté</span> <span class="word">en</span></span>
-        <span class="line"><span class="word serif grad">certitudes.</span></span>
-      </h1>
-
-      <div class="hero__bottom">
-        <p class="hero__lead">Depuis 1987, SOFRACO décompose la complexité de la protection sociale pour en faire jaillir des solutions limpides&nbsp;: retraite, prévoyance, santé, épargne.</p>
-        <div class="hero__actions">
-          <a href="#expertises" class="btn btn--light magnetic" data-cursor="Explorer"><span>Découvrir nos expertises</span></a>
-          <a href="#contact" class="btn btn--ghost magnetic" data-cursor="Contact"><span>Être rappelé</span></a>
+      <svg class="hero__bgmark" viewBox="0 0 44 94" aria-hidden="true">
+        <path d="M43.787,0,0,18.766l14.593,6.255,29.193-12.51Z"/>
+        <path d="M0,46.255,43.786,65.021V52.51L14.593,40Z" transform="translate(0 -14.979)"/>
+        <path d="M0,82.5,29.193,95.011l14.593-6.256L0,69.99Z" transform="translate(0 -26.21)"/>
+        <path d="M0,122.5v12.51l43.786-18.766L29.193,109.99Z" transform="translate(0 -41.189)"/>
+      </svg>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow reveal-up"><span class="dot"></span>Réseau national de courtiers indépendants</p>
+          <h1 class="hero__title">
+            <span class="line"><span>Nous protégeons</span></span>
+            <span class="line"><span>les entreprises</span></span>
+            <span class="line"><span>et <em>leurs dirigeants.</em></span></span>
+          </h1>
+          <p class="hero__lead reveal-up">Retraite, santé, prévoyance, épargne et ingénierie sociale&nbsp;: depuis 1987, nos courtiers experts sécurisent le présent et garantissent le futur des chefs d'entreprise et de leurs salariés.</p>
+          <div class="hero__actions reveal-up">
+            <a href="https://sofraco.com/courtiers-sofraco/" class="btn btn--orange btn--lg magnetic"><span>Trouver un courtier</span><i class="arrow">→</i></a>
+            <a href="https://sofraco.com/devenir-courtier/" class="btn btn--line btn--lg magnetic"><span>Devenir courtier</span></a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__img"><img src="assets/img/hero-equipe.jpg" alt="Un courtier Sofraco en rendez-vous avec une équipe de dirigeants" /></div>
+          <div class="chip chip--a"><strong data-count="100000" data-format="space">0</strong><span>dirigeants accompagnés</span></div>
+          <div class="chip chip--b"><img src="assets/img/icon-sofraco.svg" alt="" width="18" height="38" /><span><strong data-count="300" data-prefix="+">0</strong> cabinets en France</span></div>
+          <div class="chip chip--c"><span class="chip__dot"></span>Indépendants &amp; impartiaux</div>
         </div>
       </div>
-
-
-      <div class="hero__scroll mono"><span>Scroll</span><i></i></div>
     </section>
 
     <!-- MARQUEE -->
-    <section class="marquee" aria-label="Domaines">
+    <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Retraite</span><b>✦</b><span class="serif">Prévoyance</span><b>✦</b><span>Santé</span><b>✦</b><span class="serif">Épargne</span><b>✦</b><span>Madelin</span><b>✦</b><span class="serif">PER</span><b>✦</b>
-        <span>Retraite</span><b>✦</b><span class="serif">Prévoyance</span><b>✦</b><span>Santé</span><b>✦</b><span class="serif">Épargne</span><b>✦</b><span>Madelin</span><b>✦</b><span class="serif">PER</span><b>✦</b>
+        <span>Retraite</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Santé</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Prévoyance</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Épargne</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Ingénierie sociale</span><img src="assets/img/icon-sofraco.svg" alt="" />
+        <span>Retraite</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Santé</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Prévoyance</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Épargne</span><img src="assets/img/icon-sofraco.svg" alt="" /><span>Ingénierie sociale</span><img src="assets/img/icon-sofraco.svg" alt="" />
       </div>
-    </section>
+    </div>
 
-    <!-- MANIFESTE -->
-    <section class="manifesto" id="manifeste">
-      <div class="label mono"><span>01</span> Manifeste</div>
-      <p class="manifesto__text" data-split>
-        Un indépendant ne devrait jamais choisir entre bâtir et se protéger. Nous transformons des régimes opaques en une architecture claire, taillée pour votre statut, vos revenus et ceux que vous aimez. <em>Une lumière brute entre. Un spectre précis en sort.</em>
-      </p>
-      <div class="manifesto__stats">
-        <div class="stat"><span class="stat__num" data-count="1987">0</span><span class="mono">Année de fondation</span></div>
-        <div class="stat"><span class="stat__num" data-count="4">0</span><span class="mono">Piliers de protection</span></div>
-        <div class="stat"><span class="stat__num" data-count="360" data-suffix="°">0</span><span class="mono">Vision patrimoniale</span></div>
-        <div class="stat"><span class="stat__num" data-count="1" data-prefix="×">0</span><span class="mono">Interlocuteur dédié</span></div>
-      </div>
-    </section>
-
-    <!-- EXPERTISES (horizontal) -->
-    <section class="expertise" id="expertises">
-      <div class="expertise__pin">
-        <div class="expertise__head">
-          <div class="label mono"><span>02</span> Expertises</div>
-          <h2>Quatre faisceaux.<br /><span class="serif">Une seule lumière.</span></h2>
-          <div class="expertise__progress"><span></span></div>
+    <!-- EN QUELQUES MOTS -->
+    <section class="about" id="groupe">
+      <div class="wrap about__grid">
+        <h2 class="h2 reveal-lines">Le Groupe Sofraco<br />en quelques mots</h2>
+        <div class="about__text">
+          <p class="about__big" data-words>Le Groupe Sofraco est un réseau national de courtiers indépendants experts en protection sociale. Nous accompagnons les dirigeants d'entreprise dans leur développement depuis 1987.</p>
+          <p class="reveal-up">C'est aujourd'hui plus de 300 cabinets sur toute la France qui accompagnent au quotidien plus de 100&nbsp;000 dirigeants et leurs salariés, en leur proposant des solutions sur mesure et personnalisées.</p>
+          <p class="reveal-up">Dans un contexte réglementaire de plus en plus contraignant, le Groupe œuvre pour permettre indépendance et expertise à ses courtiers en leur apportant accompagnement, outils, formations, veille juridique et solutions produits.</p>
+          <a href="https://sofraco.com/a-propos-du-groupe/" class="link reveal-up">À propos du Groupe <i>→</i></a>
         </div>
-        <div class="expertise__track">
-          <article class="card" data-tilt data-cursor="Détails">
-            <div class="card__glow"></div>
-            <div class="card__top mono"><span>/01</span><span>Retraite</span></div>
-            <div class="card__visual card__visual--rings"><i></i><i></i><i></i><i></i></div>
-            <h3>Retraite</h3>
-            <p>PER individuel, contrats Madelin, optimisation fiscale. Nous construisons le revenu de demain, avec la déductibilité d'aujourd'hui.</p>
-            <ul class="mono"><li>PER</li><li>Madelin</li><li>Fiscalité</li></ul>
-          </article>
-          <article class="card" data-tilt data-cursor="Détails">
-            <div class="card__glow"></div>
-            <div class="card__top mono"><span>/02</span><span>Prévoyance</span></div>
-            <div class="card__visual card__visual--shield"><svg viewBox="0 0 100 100"><path d="M50 8 86 22v26c0 22-16 38-36 44C30 86 14 70 14 48V22Z"/><path d="M50 22 74 31v17c0 15-10 26-24 30-14-4-24-15-24-30V31Z"/><path d="M50 36 62 40v8c0 8-5 13-12 15-7-2-12-7-12-15v-8Z"/></svg></div>
-            <h3>Prévoyance</h3>
-            <p>Arrêt de travail, invalidité, décès. Un filet calibré au millimètre pour que l'imprévu ne devienne jamais une faillite.</p>
-            <ul class="mono"><li>IJ</li><li>Invalidité</li><li>Décès</li></ul>
-          </article>
-          <article class="card" data-tilt data-cursor="Détails">
-            <div class="card__glow"></div>
-            <div class="card__top mono"><span>/03</span><span>Santé</span></div>
-            <div class="card__visual card__visual--pulse"><svg viewBox="0 0 200 60"><path d="M0 30h50l10-20 14 40 12-30 8 10h106"/></svg></div>
-            <h3>Santé</h3>
-            <p>Complémentaires santé individuelles et collectives, pour vous, votre famille et vos salariés. Des garanties lisibles, sans angle mort.</p>
-            <ul class="mono"><li>Individuelle</li><li>Collective</li><li>Famille</li></ul>
-          </article>
-          <article class="card" data-tilt data-cursor="Détails">
-            <div class="card__glow"></div>
-            <div class="card__top mono"><span>/04</span><span>Épargne</span></div>
-            <div class="card__visual card__visual--bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <h3>Épargne</h3>
-            <p>Assurance-vie, capitalisation, transmission. Faire fructifier, puis transmettre, avec la rigueur d'un architecte patrimonial.</p>
-            <ul class="mono"><li>Assurance-vie</li><li>Capitalisation</li><li>Transmission</li></ul>
-          </article>
-          <div class="card card--end">
-            <span class="serif">Et tout ce qui</span>
-            <span>relie les quatre.</span>
-            <a href="#contact" class="btn btn--light magnetic" data-cursor="Go"><span>Bilan gratuit</span></a>
+      </div>
+      <div class="wrap stats">
+        <div class="stat"><span class="stat__num" data-count="1987" data-from="1950">1987</span><span class="stat__label">Année de création, à Bordeaux</span></div>
+        <div class="stat"><span class="stat__num" data-count="300" data-prefix="+">0</span><span class="stat__label">Cabinets de courtage indépendants</span></div>
+        <div class="stat"><span class="stat__num" data-count="100000" data-format="space">0</span><span class="stat__label">Dirigeants accompagnés au quotidien</span></div>
+        <div class="stat"><span class="stat__num" data-count="60" data-prefix="+">0</span><span class="stat__label">Compagnies d'assurances référencées</span></div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote">
+      <div class="wrap">
+        <img class="quote__mark" src="assets/img/icon-sofraco.svg" alt="" />
+        <blockquote data-words-color>« Unis par notre expertise, liés par notre indépendance, nous protégeons les entreprises et leurs dirigeants. »</blockquote>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="solutions" id="solutions">
+      <div class="wrap">
+        <div class="solutions__head">
+          <div>
+            <p class="eyebrow reveal-up"><span class="dot"></span>Nos expertises</p>
+            <h2 class="h2 reveal-lines">Une protection sociale<br />de la création à la cession</h2>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Type de solutions">
+            <button role="tab" aria-selected="true" data-tab="dirigeant">Solutions du dirigeant</button>
+            <button role="tab" aria-selected="false" data-tab="collectif">Solutions collectives</button>
+            <span class="tabs__pill" aria-hidden="true"></span>
           </div>
         </div>
-      </div>
-    </section>
+        <p class="solutions__intro reveal-up" data-panel-text="dirigeant">Impartiaux, nos courtiers proposent une approche globale permettant de mesurer les impacts des choix de statut ou de rémunération sur la protection sociale des dirigeants.</p>
+        <p class="solutions__intro reveal-up" data-panel-text="collectif" hidden>Prévoyance, santé, retraite et épargne salariale : des solutions collectives pour protéger vos salariés, respecter vos obligations et valoriser l'image de votre entreprise.</p>
 
-    <!-- POUR QUI -->
-    <section class="audience" id="pour-qui">
-      <div class="label mono"><span>03</span> Pour qui</div>
-      <ul class="audience__list">
-        <li data-cursor="Voir" data-img="a"><span class="mono">A</span><h3>Travailleurs non-salariés</h3><p>Artisans, commerçants, gérants majoritaires.</p><i>↗</i></li>
-        <li data-cursor="Voir" data-img="b"><span class="mono">B</span><h3>Professions libérales</h3><p>Médecins, avocats, experts, architectes.</p><i>↗</i></li>
-        <li data-cursor="Voir" data-img="c"><span class="mono">C</span><h3>Chefs d'entreprise</h3><p>Dirigeants, cadres, protection de l'équipe.</p><i>↗</i></li>
-        <li data-cursor="Voir" data-img="d"><span class="mono">D</span><h3>Particuliers</h3><p>Familles, projets de vie, transmission.</p><i>↗</i></li>
-      </ul>
-      <div class="audience__float" aria-hidden="true"><div class="audience__orb"></div></div>
+        <div class="pillars">
+          <article class="pillar">
+            <div class="pillar__img"><img src="assets/img/retraite.jpg" alt="Dirigeant préparant sa retraite" loading="lazy" /></div>
+            <div class="pillar__body">
+              <span class="pillar__n">01</span>
+              <h3>La retraite</h3>
+              <ul data-list="dirigeant"><li>L'assurance-vie</li><li>Le contrat PER (Plan Épargne Retraite)</li><li>Investir dans l'immobilier</li><li>L'ALDR — Accompagnement à la Liquidation des Droits Retraite</li></ul>
+              <ul data-list="collectif" hidden><li>Le PER Obligatoire</li><li>Le PERECO</li><li>L'ALDR — Accompagnement à la Liquidation des Droits Retraite</li></ul>
+              <a class="link" data-href-dirigeant="https://sofraco.com/les-solutions-du-dirigeant/" data-href-collectif="https://sofraco.com/les-solutions-collectives/" href="https://sofraco.com/les-solutions-du-dirigeant/">En savoir plus <i>→</i></a>
+            </div>
+          </article>
+          <article class="pillar">
+            <div class="pillar__img"><img src="assets/img/prevoyance.jpg" alt="Bilan de prévoyance avec un conseiller" loading="lazy" /></div>
+            <div class="pillar__body">
+              <span class="pillar__n">02</span>
+              <h3>La prévoyance</h3>
+              <ul data-list="dirigeant"><li>Le bilan de prévoyance du chef d'entreprise</li><li>La protection de la sphère privée du dirigeant</li><li>La protection de l'entreprise et des associés</li><li>L'assurance emprunteur</li></ul>
+              <ul data-list="collectif" hidden><li>La prévoyance collective</li><li>Le contrat Homme-clé</li></ul>
+              <a class="link" data-href-dirigeant="https://sofraco.com/les-solutions-du-dirigeant/" data-href-collectif="https://sofraco.com/les-solutions-collectives/" href="https://sofraco.com/les-solutions-du-dirigeant/">En savoir plus <i>→</i></a>
+            </div>
+          </article>
+          <article class="pillar">
+            <div class="pillar__img"><img src="assets/img/sante.jpg" alt="Échange entre collaborateurs au bureau" loading="lazy" /></div>
+            <div class="pillar__body">
+              <span class="pillar__n">03</span>
+              <h3>La santé</h3>
+              <ul data-list="dirigeant"><li>Complémentaire santé individuelle</li><li>Garanties adaptées au dirigeant et à sa famille</li></ul>
+              <ul data-list="collectif" hidden><li>Complémentaire santé collective</li><li>Mise en conformité ANI et panier de soins</li></ul>
+              <a class="link" data-href-dirigeant="https://sofraco.com/les-solutions-du-dirigeant/" data-href-collectif="https://sofraco.com/les-solutions-collectives/" href="https://sofraco.com/les-solutions-du-dirigeant/">En savoir plus <i>→</i></a>
+            </div>
+          </article>
+          <article class="pillar">
+            <div class="pillar__img"><img src="assets/img/epargne.jpg" alt="Projet patrimonial et investissement" loading="lazy" /></div>
+            <div class="pillar__body">
+              <span class="pillar__n">04</span>
+              <h3>L'épargne</h3>
+              <ul data-list="dirigeant"><li>Assurance-vie et placements financiers</li><li>Optimisation fiscale et sociale</li><li>Immobilier défiscalisant</li></ul>
+              <ul data-list="collectif" hidden><li>Le Plan Épargne Entreprise (PEE)</li><li>Participation &amp; intéressement</li><li>Loi partage de la valeur</li></ul>
+              <a class="link" data-href-dirigeant="https://sofraco.com/les-solutions-du-dirigeant/" data-href-collectif="https://sofraco.com/les-solutions-collectives/" href="https://sofraco.com/les-solutions-du-dirigeant/">En savoir plus <i>→</i></a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- METHODE -->
-    <section class="method" id="methode">
-      <div class="method__sticky">
-        <div class="label mono"><span>04</span> Méthode</div>
-        <h2>De la lumière blanche<br /><span class="serif grad">au spectre exact.</span></h2>
+    <section class="method">
+      <div class="wrap method__grid">
+        <div class="method__head">
+          <p class="eyebrow reveal-up"><span class="dot"></span>Notre méthode</p>
+          <h2 class="h2 reveal-lines">L'analyse et le diagnostic&nbsp;: l'ADN du Groupe</h2>
+          <p class="reveal-up">Parce que pour bien protéger, il faut prendre le temps d'écouter et de comprendre, nous appliquons une méthodologie dans laquelle le chef d'entreprise joue un rôle essentiel.</p>
+          <div class="method__line" aria-hidden="true"><span></span></div>
+        </div>
+        <ol class="steps">
+          <li class="step"><span class="step__n">01</span><h3>Écouter et comprendre</h3><p>La phase la plus importante : définir ensemble les besoins et les zones de risques, en s'appuyant sur vos attentes, votre histoire et votre sensibilité.</p></li>
+          <li class="step"><span class="step__n">02</span><h3>Établir un diagnostic</h3><p>Un audit complet de votre protection sociale, individuelle et collective, pour mesurer l'efficacité réelle de vos garanties en cas d'aléas.</p></li>
+          <li class="step"><span class="step__n">03</span><h3>Préconiser</h3><p>Des recommandations personnalisées, fondées sur vos besoins réels, sélectionnées en toute impartialité parmi plus de 60 compagnies.</p></li>
+          <li class="step"><span class="step__n">04</span><h3>Avancer à vos côtés</h3><p>Évolutions réglementaires, projets de développement, changements de vie : nous continuons à vous accompagner à chaque étape.</p></li>
+        </ol>
       </div>
-      <ol class="method__steps">
-        <li class="step"><span class="step__n">01</span><div><h3>Diagnostic</h3><p>Analyse de votre statut, de vos régimes obligatoires et de vos garanties existantes. On voit enfin clair.</p></div></li>
-        <li class="step"><span class="step__n">02</span><div><h3>Architecture</h3><p>Nous comparons le marché et dessinons une stratégie sur-mesure : couverture, fiscalité, budget.</p></div></li>
-        <li class="step"><span class="step__n">03</span><div><h3>Mise en place</h3><p>Nous gérons les démarches de A à Z. Vous signez, nous orchestrons.</p></div></li>
-        <li class="step"><span class="step__n">04</span><div><h3>Suivi</h3><p>Un interlocuteur dédié qui ajuste votre protection à chaque étape de votre vie professionnelle.</p></div></li>
-      </ol>
+    </section>
+
+    <!-- DEVENIR COURTIER -->
+    <section class="join" id="devenir-courtier">
+      <div class="wrap join__grid">
+        <div class="join__text">
+          <p class="eyebrow eyebrow--light reveal-up"><span class="dot"></span>Devenir courtier</p>
+          <h2 class="h2 reveal-lines">Faites le choix de<br />votre <em>indépendance</em></h2>
+          <p class="reveal-up">En rejoignant le premier réseau national d'experts en protection sociale, vous bénéficiez de notre notoriété et de notre expérience de plus de 30 ans. Chaque service a été pensé pour vous permettre de vous concentrer sur l'essentiel : vos clients et votre métier.</p>
+          <div class="join__actions reveal-up">
+            <a href="https://sofraco.com/devenir-courtier/" class="btn btn--orange btn--lg magnetic"><span>Devenir courtier</span><i class="arrow">→</i></a>
+            <a href="https://sofraco.com/devenir-courtier/temoignages/" class="link link--light">Lire les témoignages <i>→</i></a>
+          </div>
+        </div>
+        <ul class="join__list">
+          <li><span>01</span>Créer votre entreprise en association avec le Groupe Sofraco</li>
+          <li><span>02</span>Exercer votre activité en toute liberté</li>
+          <li><span>03</span>Développer vos compétences et valoriser votre expertise en protection sociale</li>
+          <li><span>04</span>Accéder aux meilleurs produits du marché avec nos 60 compagnies partenaires</li>
+          <li><span>05</span>Bénéficier des protocoles de rémunération négociés et privilégiés</li>
+        </ul>
+      </div>
+      <div class="join__links wrap">
+        <a href="https://sofraco.com/devenir-courtier/devenir-independant/">Pourquoi nous rejoindre ?</a>
+        <a href="https://sofraco.com/devenir-courtier/notre-accompagnement/">Notre accompagnement</a>
+        <a href="https://sofraco.com/devenir-courtier/formations/">Nos formations</a>
+        <a href="https://sofraco.com/devenir-courtier/temoignages/">Témoignages</a>
+      </div>
+    </section>
+
+    <!-- EXPERT-COMPTABLE -->
+    <section class="partner">
+      <div class="wrap partner__grid">
+        <div class="partner__img parallax-wrap"><img class="parallax" src="assets/img/expert-comptable.jpg" alt="Expert-comptable partenaire du Groupe Sofraco" loading="lazy" /></div>
+        <div class="partner__text">
+          <p class="eyebrow reveal-up"><span class="dot"></span>Relations prescripteurs</p>
+          <h2 class="h2 reveal-lines">Expert-comptable</h2>
+          <h3 class="reveal-up">La démarche d'accompagnement pour vous et vos clients</h3>
+          <p class="reveal-up">Nous procédons, auprès de vos clients, à un audit complet en matière de protection sociale, individuelle et collective. Après analyse, nous dégageons clairement les forces et faiblesses relevées afin de définir des priorités et les solutions les plus pertinentes.</p>
+          <p class="reveal-up">Dans le cadre de l'interprofessionnalité, nos partenaires experts-comptables et collaborateurs de cabinets profitent de nos outils et de l'aide de nos courtiers pour réaliser les missions et suivre la mise en place des solutions.</p>
+          <div class="badge reveal-up"><img src="assets/img/icon-sofraco.svg" alt="" width="14" height="30" />Partenaire du Conseil Supérieur de l'Ordre des Experts-Comptables</div>
+          <a href="https://sofraco.com/expert-comptable/" class="link reveal-up">Expert-comptable <i>→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TROUVER UN COURTIER -->
+    <section class="finder" id="trouver">
+      <div class="wrap finder__grid">
+        <div class="finder__map">
+          <img src="assets/img/carte-de-france.png" alt="Carte de France des cabinets du Groupe Sofraco" loading="lazy" />
+          <div class="finder__pins" aria-hidden="true"></div>
+        </div>
+        <div class="finder__text">
+          <p class="eyebrow reveal-up"><span class="dot"></span>Partout en France</p>
+          <h2 class="h2 reveal-lines">Vous cherchez un courtier près de chez vous&nbsp;?</h2>
+          <p class="reveal-up">L'ensemble des <strong>300 courtiers du Groupe Sofraco</strong>, basés dans toute la France et dans les DOM-TOM, se tiennent à votre disposition pour <strong>vous accompagner et répondre à vos besoins</strong>.</p>
+          <p class="reveal-up">Les courtiers du Groupe sont entièrement indépendants&nbsp;! Ils ne sont affiliés à aucune compagnie et font leur métier en toute <strong>transparence, indépendance et impartialité</strong>.</p>
+          <p class="finder__goal reveal-up">Leur seul objectif&nbsp;: vous délivrer une solution adaptée à vos besoins.</p>
+          <a href="https://sofraco.com/courtiers-sofraco/" class="btn btn--orange btn--lg magnetic reveal-up"><span>Trouver un courtier</span><i class="arrow">→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTUALITES -->
+    <section class="news">
+      <div class="wrap">
+        <div class="news__head">
+          <h2 class="h2 reveal-lines">Les trois derniers<br />articles publiés</h2>
+          <a href="https://sofraco.com/actualites/" class="link reveal-up">Toutes les actualités <i>→</i></a>
+        </div>
+        <div class="news__grid">
+          <a class="post" href="https://sofraco.com/2026/01/bienvenue-a-tiphaine-delys/">
+            <div class="post__img"><img src="assets/img/actu-tiphaine-delys.jpg" alt="Bienvenue à Tiphaine Delys" loading="lazy" /></div>
+            <time datetime="2026-01-29">29/01/2026</time>
+            <h3>Bienvenue à Tiphaine DELYS&nbsp;!</h3>
+            <p>Après plusieurs années d'expérience dans le secteur de l'assurance, Tiphaine rejoint le Groupe SOFRACO depuis Bayonne, dans les Pyrénées-Atlantiques.</p>
+            <span class="link">Lire cet article <i>→</i></span>
+          </a>
+          <a class="post" href="https://sofraco.com/2026/01/les-courtiers-referents-2026/">
+            <div class="post__img"><img src="assets/img/forces-du-groupe.jpg" alt="Les courtiers référents 2026" loading="lazy" /></div>
+            <time datetime="2026-01-20">20/01/2026</time>
+            <h3>Les courtiers référents 2026</h3>
+            <p>Véritables relais de proximité et acteurs clés de la vie du réseau, nos courtiers référents jouent un rôle essentiel tout au long de l'année.</p>
+            <span class="link">Lire cet article <i>→</i></span>
+          </a>
+          <a class="post" href="https://sofraco.com/2026/01/bienvenue-a-sebastien-cathala/">
+            <div class="post__img"><img src="assets/img/actu-sebastien-cathala.jpg" alt="Bienvenue à Sébastien Cathala" loading="lazy" /></div>
+            <time datetime="2026-01-16">16/01/2026</time>
+            <h3>Bienvenue à Sébastien CATHALA&nbsp;!</h3>
+            <p>Fort de 18 ans d'expérience en protection sociale, Sébastien crée Horizon Assurances Courtage, installé à Canté, en Ariège.</p>
+            <span class="link">Lire cet article <i>→</i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOS ACTIONS -->
+    <section class="rse">
+      <div class="wrap">
+        <div class="rse__head">
+          <p class="eyebrow reveal-up"><span class="dot"></span>Nos actions — RSE</p>
+          <h2 class="h2 reveal-lines">Un engagement qui va au-delà de l'assurance</h2>
+        </div>
+        <div class="rse__grid">
+          <a class="rse__card" href="https://sofraco.com/nos-action/">
+            <img src="assets/img/rse-mecenat-chirurgie-cardiaque.jpg" alt="Mécénat Chirurgie Cardiaque" loading="lazy" />
+            <div><h3>Mécénat Chirurgie Cardiaque</h3><p>Sauver des vies, un cœur à la fois. Depuis 2023, le Groupe organise chaque année un challenge kilométrique au profit de l'association.</p></div>
+          </a>
+          <a class="rse__card" href="https://sofraco.com/nos-action/">
+            <img src="assets/img/rse-cafes-joyeux.jpg" alt="Les Cafés Joyeux" loading="lazy" />
+            <div><h3>Les Cafés Joyeux</h3><p>Des cafés qui rendent heureux, en faveur de l'insertion professionnelle des personnes en situation de handicap mental.</p></div>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta" id="contact">
-      <div class="cta__ring" aria-hidden="true"></div>
-      <div class="label mono"><span>05</span> Contact</div>
-      <h2 class="cta__title"><span>Parlons de</span><span class="serif grad">votre futur.</span></h2>
-      <form class="cta__form" onsubmit="event.preventDefault(); this.classList.add('is-sent');">
-        <div class="field"><input id="f-name" required placeholder=" " /><label for="f-name">Nom & prénom</label></div>
-        <div class="field"><input id="f-mail" type="email" required placeholder=" " /><label for="f-mail">Email</label></div>
-        <div class="field"><select id="f-need" required><option value="" disabled selected></option><option>Retraite</option><option>Prévoyance</option><option>Santé</option><option>Épargne</option><option>Bilan global</option></select><label for="f-need">Votre besoin</label></div>
-        <button class="btn btn--light btn--xl magnetic" data-cursor="Envoyer"><span>Demander mon bilan</span></button>
-        <p class="cta__ok mono">Merci — un conseiller vous recontacte sous 24h.</p>
-      </form>
+    <section class="cta">
+      <div class="wrap cta__in">
+        <h2>Sécurisez votre présent.<br /><em>Garantissez votre futur.</em></h2>
+        <div class="cta__actions">
+          <a href="https://sofraco.com/courtiers-sofraco/" class="btn btn--white btn--lg magnetic"><span>Trouver un courtier</span><i class="arrow">→</i></a>
+          <a href="https://sofraco.com/contact/" class="btn btn--ghost-white btn--lg magnetic"><span>Nous contacter</span></a>
+        </div>
+      </div>
+      <svg class="cta__mark" viewBox="0 0 44 94" aria-hidden="true">
+        <path d="M43.787,0,0,18.766l14.593,6.255,29.193-12.51Z"/>
+        <path d="M0,46.255,43.786,65.021V52.51L14.593,40Z" transform="translate(0 -14.979)"/>
+        <path d="M0,82.5,29.193,95.011l14.593-6.256L0,69.99Z" transform="translate(0 -26.21)"/>
+        <path d="M0,122.5v12.51l43.786-18.766L29.193,109.99Z" transform="translate(0 -41.189)"/>
+      </svg>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer__grid">
-      <div><span class="mono dim">Siège</span><p>Bordeaux, France</p></div>
-      <div><span class="mono dim">Groupe</span><p>SOFRACO — Société Française de Courtage</p></div>
-      <div><span class="mono dim">Navigation</span><p><a href="#expertises">Expertises</a> · <a href="#methode">Méthode</a> · <a href="#contact">Contact</a></p></div>
-      <div><span class="mono dim">Heure locale</span><p class="clock mono">--:--:--</p></div>
+    <div class="wrap">
+      <div class="footer__top">
+        <img src="assets/img/logo-sofraco.svg" alt="Groupe Sofraco" width="220" height="65" />
+        <a href="https://www.linkedin.com/company/groupesofraco/" target="_blank" rel="noopener" class="footer__social">LinkedIn <i>↗</i></a>
+      </div>
+      <div class="footer__contact">
+        <a href="tel:0557355735">05 57 35 57 35</a>
+        <a href="mailto:info@sofraco.com">info@sofraco.com</a>
+      </div>
+      <div class="footer__cols">
+        <div><h4>Le Groupe</h4><a href="https://sofraco.com/a-propos-du-groupe/">À propos du Groupe</a><a href="https://sofraco.com/nos-action/">Nos actions</a><a href="https://sofraco.com/actualites/">Actualités</a></div>
+        <div><h4>Solutions</h4><a href="https://sofraco.com/les-solutions-du-dirigeant/">Solutions du dirigeant</a><a href="https://sofraco.com/les-solutions-collectives/">Solutions collectives</a><a href="https://sofraco.com/courtiers-sofraco/">Trouver un courtier</a></div>
+        <div><h4>Professionnels</h4><a href="https://sofraco.com/devenir-courtier/">Devenir courtier</a><a href="https://sofraco.com/expert-comptable/">Expert-comptable</a><a href="https://extranet.groupesofraco.fr/login">Accès Membre</a></div>
+      </div>
+      <div class="footer__legal">
+        <span>© <span class="year">2026</span> Groupe Sofraco</span>
+        <nav>
+          <a href="https://sofraco.com/contact/">Contact</a>
+          <a href="https://sofraco.com/mentions-legales/">Mentions légales</a>
+          <a href="https://sofraco.com/politique-de-confidentialite/">Politique de protection des données</a>
+          <a href="https://sofraco.com/politique-relative-a-lutilisation-des-cookies/">Politique relative à l'utilisation des cookies</a>
+        </nav>
+      </div>
     </div>
-    <div class="footer__giant" aria-hidden="true"><span>S</span><span>O</span><span>F</span><span>R</span><span>A</span><span>C</span><span>O</span></div>
-    <div class="footer__legal mono dim"><span>© <span class="year"></span> Groupe SOFRACO</span><span>Mentions légales</span><span>Intermédiaire en assurance</span></div>
   </footer>
 
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
-  <script type="module" src="assets/js/scene.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
